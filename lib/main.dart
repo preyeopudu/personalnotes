@@ -61,16 +61,23 @@ class FirstPage extends StatelessWidget {
                   children: categories
                       .map(
                         (category) => Container(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: const [Icon(Icons.email), Text("0")],
-                              ),
-                              Text(category.name)
-                            ],
+                          child: Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: const [
+                                    Icon(Icons.email),
+                                    Text("0")
+                                  ],
+                                ),
+                                Text(category.name)
+                              ],
+                            ),
                           ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
