@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:personalnotes/modules/category.dart';
+import 'package:personalnotes/modules/category_icon.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,10 +33,31 @@ class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List categories = [
-      Category(id: "Today", name: "Today"),
-      Category(id: "Scheduled", name: "Scheduled"),
-      Category(id: "All", name: "All"),
-      Category(id: "Flagged", name: "Flagged")
+      Category(
+          id: "Today",
+          name: "Today",
+          icon: const CategoryIcon(
+              bgColor: CupertinoColors.systemBlue,
+              iconData: Icons.inbox_rounded)),
+      Category(
+          id: "Scheduled",
+          name: "Scheduled",
+          icon: const CategoryIcon(
+            bgColor: CupertinoColors.systemGrey,
+            iconData: Icons.inbox_rounded,
+          )),
+      Category(
+          id: "All",
+          name: "All",
+          icon: const CategoryIcon(
+              bgColor: CupertinoColors.activeOrange,
+              iconData: CupertinoIcons.flag_fill)),
+      Category(
+          id: "Flagged",
+          name: "Flagged",
+          icon: const CategoryIcon(
+              bgColor: CupertinoColors.activeOrange,
+              iconData: CupertinoIcons.flag_fill))
     ];
     return Scaffold(
         appBar: AppBar(
@@ -70,10 +93,7 @@ class FirstPage extends StatelessWidget {
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
-                                  children: const [
-                                    Icon(Icons.email),
-                                    Text("0")
-                                  ],
+                                  children: [category.icon, const Text("0")],
                                 ),
                                 Text(category.name)
                               ],
