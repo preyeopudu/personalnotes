@@ -15,13 +15,26 @@ class ListViewItems extends StatefulWidget {
 class _ListViewItemsState extends State<ListViewItems> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(0),
-      child: Column(
-        children: widget.categoryCollection.categories
-            .map((category) => Text(category.name))
-            .toList(),
-      ),
+    return ListView(
+      children: widget.categoryCollection.categories
+          .map((category) => ListTile(
+                leading: Container(
+                    decoration: const BoxDecoration(
+                        shape: BoxShape.circle, color: Colors.blue),
+                    child: const Icon(Icons.check)),
+                title: Row(
+                  children: [
+                    category.icon,
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Text(category.name),
+                  ],
+                ),
+                trailing: const Icon(Icons.reorder),
+                tileColor: Colors.grey[800],
+              ))
+          .toList(),
     );
   }
 }

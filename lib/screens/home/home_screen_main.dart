@@ -39,7 +39,6 @@ class _HomePageState extends State<HomePage> {
           children: [
             Expanded(
                 child: Container(
-              color: Colors.black,
               child: layoutType == "grid"
                   ? GridViewItems(categoryCollection: categoryCollection)
                   : ListViewItems(categoryCollection: categoryCollection),
