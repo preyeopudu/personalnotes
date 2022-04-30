@@ -2,6 +2,7 @@ import 'package:personalnotes/modules/category_collections.dart';
 import 'package:personalnotes/screens/home/footer.dart';
 import 'package:personalnotes/screens/home/grid_view_items.dart';
 import 'package:flutter/material.dart';
+import 'package:personalnotes/screens/home/list_view_items.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -39,7 +40,9 @@ class _HomePageState extends State<HomePage> {
             Expanded(
                 child: Container(
               color: Colors.black,
-              child: GridViewItems(categoryCollection: categoryCollection),
+              child: layoutType == "grid"
+                  ? GridViewItems(categoryCollection: categoryCollection)
+                  : ListViewItems(categoryCollection: categoryCollection),
             )),
             const Footer()
           ],
