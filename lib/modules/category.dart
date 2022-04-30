@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:personalnotes/modules/category_icon.dart';
 
 class Category {
